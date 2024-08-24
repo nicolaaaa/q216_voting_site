@@ -1,0 +1,336 @@
+/* Importing Fonts and Font Awesome */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;1,500&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css');
+
+:root {
+  --vh: 100vh;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: linear-gradient(262deg, #ff7854, #fd267d);
+  font-family: 'Roboto', sans-serif;
+  height: calc(var(--vh, 1vh) * 100);
+  margin: 0;
+  display: flex;
+  /*height: 100vh;*/
+}
+
+.info {
+  z-index: 1000;
+  display: block;
+  position: fixed;
+  bottom: 0px;
+  right: 0px;
+  border-radius: 0;
+}
+
+.container {
+  display: flex;
+  flex-grow: 1;
+  padding: 0;
+}
+
+.side_max, .side_mini {
+  background-color: #fff;
+  height: 100%;
+  /*min-height: 100vh;*/
+  border-right: 1px solid #e1e1e1;
+}
+
+.side_max {
+  min-width: 320px;
+}
+
+.side_mini {
+  min-width: 20px;
+}
+
+.content {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-y: auto; /* Add scroll for content overflow */
+}
+
+.side .header {
+  background: linear-gradient(262deg, #ff7854, #fd267d);
+  width: 100%;
+  height: 80px;
+  box-shadow: 0 1px 8px 0 rgba(0, 20, 20, 0.2);
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.5px;
+  text-shadow: 1px 1px 5px #444;
+  /*padding: 0 0px;*/
+}
+
+.side .header .close {
+  display: none;
+}
+
+.side_max .header .title {
+  padding: 0 10px;
+  color: #fff;
+  font-size: 23px;
+  font-weight: 700;
+}
+
+.side_mini .header .title {
+  display: none;
+}
+
+.side .menu ul {
+  display: flex;
+  padding: 0 20px;
+}
+
+.side .menu ul li {
+  list-style: none;
+  margin: 0 10px;
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: 0.5px;
+}
+
+.side .menu .active {
+  border-bottom: 3px solid #fd5068;
+  padding-bottom: 2px;
+}
+
+.side .messages {
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  transition: 0.2s box-shadow;
+}
+
+.side .messages .avatar img {
+  width: 70px;
+  height: 70px;
+  border-radius: 70px;
+}
+
+.side .messages .user {
+  padding: 0 10px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  font-size: 18px;
+}
+
+.side_max .messages .text {
+  width: 200px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 0 10px;
+  font-weight: 500;
+  font-size: 15px;
+  opacity: 0.8;
+}
+
+.side_mini .messages .text {
+  display: none;
+}
+
+.side .messages:hover {
+  box-shadow: 0 0 15px 0 rgba(43, 78, 78, 0.1);
+  border-right: 5px solid #fd5068;
+}
+
+.side {
+  position: relative;
+}
+
+.side .expand {
+  position: absolute;
+  width: 100%;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(262deg, #ff7854, #fd267d);
+  box-shadow: 0 1px 8px 0 rgba(0, 20, 20, 0.2);
+  cursor: pointer;
+  bottom: 0;
+}
+
+.content .header {
+  font-size: 70px;
+  font-weight: 600;
+  color: #fff;
+  background-clip: text;
+  -webkit-background-clip: text;
+  margin: 30px;
+  text-align: center; /* Center the header text */
+}
+
+.content .card {
+  position: relative;
+  width: 380px;
+  height: auto;
+  margin: 20px 0; /* Adjusted margin */
+}
+
+.content .card .user {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 1px 10px 0 rgba(0, 20, 20, 0.5);
+}
+
+.content .buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.content .buttons .no.disabled i,
+.content .buttons .heart.disabled i{
+  color: #19364b;
+}
+
+.content .buttons .no i {
+  color: #fd2e79;
+  font-size: 60px;
+}
+
+.content .buttons .heart i {
+  color: #11e298;
+  font-size: 52px;
+}
+
+.content .buttons .no.disabled,
+.content .buttons .heart.disabled {
+  background-color: rgba(157, 169, 178, 0.51);
+}
+
+.content .buttons .no,
+.content .buttons .heart {
+  background-color: #fff;
+  width: 90px;
+  height: 90px;
+  box-shadow: 0 1px 10px 0 rgba(0, 20, 20, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 90px;
+  margin: 20px; /* Adjusted margin */
+  transition: 0.2s;
+}
+
+
+.content .buttons .no.disabled:hover,
+.content .buttons .heart.disabled:hover {
+  transform: none;
+}
+
+.content .buttons .no:hover,
+.content .buttons .heart:hover {
+  transform: scale(1.1);
+}
+
+
+
+/* Mobile adjustments */
+@media screen and (max-width: 768px) {
+  .side_max {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .side_max_active.content {
+    display: none;
+  }
+
+  .side_mini .messages .avatar {
+    display: none;
+  }
+
+  .side_mini .messages {
+    display: none;
+  }
+
+  /*.side_mini {*/
+  /*  min-width: 20px;*/
+  /*}*/
+
+  /*.side .menu ul {*/
+  /*  flex-direction: column; !* Stack menu items vertically on smaller screens *!*/
+  /*  padding: 0;*/
+  /*}*/
+
+  .content {
+    width: 90%;
+  }
+
+  .content .header {
+    font-size: 40px; /* Adjust header font size for mobile */
+    margin: 10px;
+  }
+
+  .content .card {
+    height: auto;
+    width: 90%;
+    margin: 10px auto; /* Center card on smaller screens */
+  }
+
+  .content .card .user {
+    width: 100%;
+    height: auto;
+  }
+
+  .content .buttons {
+    flex-direction: row; /* Keep buttons in a row on mobile */
+    margin: 20px 0;
+  }
+
+  .content .buttons .no,
+  .content .buttons .star,
+  .content .buttons .heart {
+    width: 70px;
+    height: 70px;
+    margin: 10px;
+  }
+
+  .side_mini {
+    display: block; /* Show on mobile */
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 20px;
+    left: 0px;
+    border-radius: 50%;
+    box-shadow: 0 1px 10px 0 rgba(0, 20, 20, 0.2);
+    background: linear-gradient(262deg, #ff7854, #fd267d);
+    /*display: flex;*/
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Ensure it is above other elements */
+    cursor: pointer;
+  }
+
+  .side_mini i {
+    color: #fff;
+    font-size: 24px;
+  }
+
+  .side .header .close {
+    color: #fff;
+    font-size: 60px;
+    position: absolute;
+    right: 20px;
+    cursor: pointer;
+    display: block;
+  }
+
+}
+
+.tab-content {
+margin-top: 1rem;
+}

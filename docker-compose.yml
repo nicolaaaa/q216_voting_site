@@ -1,0 +1,27 @@
+
+version: "3.9"
+services:
+   nginx:
+     build: ./nginx/
+     ports:
+       - 80:80
+  
+     volumes:
+         - ./app/:/var/www/html/
+   php:
+     build: ./app/
+     expose:
+       - 9000
+     volumes:
+        - ./app/:/var/www/html/
+   db:
+    image: mysql:8.0
+    container_name: voting_db
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: travellist
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_PASSWORD: password
+      MYSQL_USER: travellist_user
+    volumes:
+      - ./mysql:/docker-entrypoint-initdb.d
